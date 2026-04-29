@@ -189,11 +189,6 @@ export default function Workshop() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="py-10 text-center text-gray-600 text-sm">
-        &copy; 2026 Invofest. All rights reserved.
-      </footer>
-
     </div>
   );
 }

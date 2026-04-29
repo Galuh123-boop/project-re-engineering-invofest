@@ -1,31 +1,8 @@
 import { Button } from "../components/ui/Button";
 import { Collapse } from "../components/Collapse";
 import CardProduct from "../components/CardProduct";
-import SpeakerCard from "../components/SpeakerCard";
-
 
 export default function Hompage() {
-  const speakers = [
-    {
-      name: "Dery Agung Triyadi",
-      role: "Aws Indonesia",
-      imageUrl:
-        "https://www.invofest-harkatnegeri.com/assets/seminar/Seminar%20Dery.png",
-    },
-    {
-      name: "Sowam Habibi",
-      role: "Google Indonesia",
-      imageUrl:
-        "https://www.invofest-harkatnegeri.com/assets/seminar/seminar%20sowam.png",
-    },
-    {
-      name: "Lhuqita Fazry",
-      role: "Mobile Development Developer, Founder Rumah Coding Indonesia",
-      imageUrl:
-        "https://www.invofest-harkatnegeri.com/assets/workshop/workshop%20mobile.png",
-    },
-  ];
-
   const collapseItems = [
     {
       title: "Apa itu Invofest?",
@@ -39,8 +16,7 @@ export default function Hompage() {
     },
     {
       title: "Apakah ada biaya pendaftaran di INVOFEST?",
-      description:
-        "Semua kegiatan dipastikan berbayar ya teman-teman.",
+      description: "Semua kegiatan dipastikan berbayar ya teman-teman.",
     },
   ];
 
@@ -68,25 +44,27 @@ export default function Hompage() {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto px-6">
-      {/* HERO */}
+    <div className="max-w-6xl mx-auto px-6 font-sans">
       <section
         id="hero"
-        className="py-10 flex gap-10 justify-between items-center"
+        className="py-16 flex flex-col md:flex-row gap-10 justify-between items-center"
       >
-        <div className="w-2/3 flex flex-col gap-6">
+        <div className="md:w-2/3 flex flex-col gap-6">
           <img
             src="https://www.invofest-harkatnegeri.com/assets/text-image.png"
-            alt=""
-            className="w-96"
+            alt="Invofest Text"
+            className="w-80 md:w-96"
           />
 
-          <p>
-            Invofest (Informatics Vocational Festival) adalah festival tahunan
-            yang bertujuan untuk menginspirasi dan memberdayakan generasi muda
-            Indonesia dalam menghadapi era digital. Dengan mengusung tema
-            "Beyond Limits, Beyond Intelligence: Innovate for a Smarter
-            Tomorrow".
+          <p className="text-gray-700 leading-relaxed">
+            <strong>Invofest (Informatics Vocational Festival)</strong> adalah
+            festival tahunan yang bertujuan untuk menginspirasi dan
+            memberdayakan generasi muda Indonesia dalam menghadapi era digital.
+            Dengan mengusung tema{" "}
+            <span className="italic">
+              "Beyond Limits, Beyond Intelligence: Innovate for a Smarter
+              Tomorrow"
+            </span>.
           </p>
 
           <div className="flex gap-3">
@@ -95,62 +73,51 @@ export default function Hompage() {
           </div>
         </div>
 
-        <div className="w-1/3">
+        <div className="md:w-1/3 flex justify-center">
           <img
             src="https://www.invofest-harkatnegeri.com/assets/Maskot-Hero.png"
-            alt=""
+            alt="Mascot"
+            className="w-64 md:w-full"
           />
         </div>
       </section>
 
-      <h2 className="text-3xl md:text-4xl text-center font-bold text-red-900">
-        Narasumber Kami
-      </h2>
+      <section id="about-and-cards" className="py-16 border-t border-gray-100">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-red-900 mb-4">
+            Tentang INVOFEST
+          </h2>
+          <p className="max-w-3xl mx-auto text-gray-600 text-sm md:text-base">
+            Invofest 2025, yang diselenggarakan oleh sarjana terapan Teknik Informatika Universitas Harkat Negeri, adalah festival tahunan yang bertujuan untuk menginspirasi generasi muda. 
+            Menghadirkan berbagai kegiatan menarik seperti kompetisi IT, workshop, dan seminar nasional.
+          </p>
+        </div>
 
-      <section id="speaker" className="py-24">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 px-3">
-          {speakers.map((speaker, index) => (
-            <SpeakerCard
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-3">
+          {cardItems.map((item, index) => (
+            <CardProduct
               key={index}
-              name={speaker.name}
-              role={speaker.role}
-              imageUrl={speaker.imageUrl}
+              title={item.title}
+              description={item.description}
             />
           ))}
         </div>
       </section>
 
-      <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-4xl font-bold text-red-900">
-          Tentang Invofest
-        </h2>
-      </div>
-
-      <section
-        id="cards"
-        className="py-24 grid grid-cols-1 md:grid-cols-2 gap-10 px-3"
-      >
-        {cardItems.map((item, index) => (
-          <CardProduct 
-            key={index} 
-            title={item.title} 
-            description={item.description}>
-          </CardProduct>
-        ))}
-      </section>
-
-      <section id="collapse" className="py-24 flex flex-col gap-2 px-3">
-        <h2 className="text-3xl font-bold text-center text-red-900 mb-6">
+      <section id="faq" className="py-20 flex flex-col gap-4 px-3">
+        <h2 className="text-3xl font-bold text-center text-red-900 mb-8">
           Punya Pertanyaan? Lihat Disini
         </h2>
 
-        {collapseItems.map((item, index) => (
-          <Collapse
-            key={index}
-            title={item.title}
-            description={item.description}
-          />
-        ))}
+        <div className="max-w-4xl mx-auto w-full flex flex-col gap-3">
+          {collapseItems.map((item, index) => (
+            <Collapse
+              key={index}
+              title={item.title}
+              description={item.description}
+            />
+          ))}
+        </div>
       </section>
     </div>
   );

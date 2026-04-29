@@ -71,7 +71,7 @@ export default function Competition() {
 
         <div className="flex-1 flex justify-center">
           <img
-            src="https://www.invofest-harkatnegeri.com/assets/Maskot-Hero.png"
+            src="https://www.invofest-harkatnegeri.com/assets/Maskot-Lomba.png"
             alt="maskot"
             className="w-72 md:w-96"
           />
@@ -148,11 +148,6 @@ export default function Competition() {
           ))}
         </div>
       </section>
-
-      {/* FOOTER */}
-      <footer className="py-10 text-center text-gray-600 text-sm">
-        &copy; 2026 Invofest. All rights reserved.
-      </footer>
     </div>
   );
 }

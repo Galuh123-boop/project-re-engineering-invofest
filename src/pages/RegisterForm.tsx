@@ -23,7 +23,7 @@ const schema = z.object({
     email: z.string().email("Format email tidak valid"),
     password: z.string().min(8, "Password minimal 8 karakter"),
     password_confirm: z.string().min(1, "Konfirmasi password wajib diisi"),
-    bio: z.string().min(1, "Bio harus diisi"),
+    bio: z.string().min(8, "Harus diisi mininal 8 kalimat"),
     event: z.string().min(1, "Nama event harus diisi")
 }).refine((data) => {
     if (!data.password || !data.password_confirm) return true;

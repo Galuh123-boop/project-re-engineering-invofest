@@ -5,22 +5,23 @@ export default function AuthLayout() {
     return (
         <>
             <Header />
-            <div className="grid grid-cols-2 items-center min-h-screen">
+            <div className="bg-gray-100 min-h-screen flex items-center justify-center">
+                <div className="grid grid-cols-2 items-center gap-10 max-w-5xl w-full p-6">
 
-                {/* kiri */}
-                <div className="h-screen flex items-center min-h-screen flex-col justify-center">
-                    <img
-                        src="https://www.invofest-harkatnegeri.com/assets/Maskot-Hero.png"
-                        alt="Invofest"
-                        className="w-96"
-                    />
-                    <h2></h2>
-                </div>
+                    {/* kiri */}
+                    <div className="flex flex-col items-center justify-center">
+                        <img
+                            src="https://www.invofest-harkatnegeri.com/assets/Maskot-Hero.png"
+                            alt="Invofest"
+                            className="w-90"
+                        />
+                    </div>
 
+                    {/* kanan */}
+                    <div className="bg-white p-6 rounded-xl shadow-md">
+                        <Outlet />
+                    </div>
 
-                {/* kanan */}
-                <div className="p-6">
-                    <Outlet />
                 </div>
             </div>
         </>

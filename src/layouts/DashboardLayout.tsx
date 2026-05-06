@@ -51,7 +51,7 @@ export default function DashboardLayout() {
           <button
             onClick={handleLogout}
             type="button"
-            className="p-3 bg-red-700 w-full text-white"
+            className="p-3 bg-red-900 w-full text-white"
           >
             Logout
           </button>

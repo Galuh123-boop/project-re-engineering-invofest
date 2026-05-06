@@ -8,6 +8,15 @@ import Talkshow from "./pages/Talkshow";
 import Workshop from "./pages/Workshop";
 import MainLayout from "./layouts/MainLayout";
 import AuthLayout from "./layouts/AuthLayout";
+import DashboardIndex from "./pages/dashboard/DashboardIndex";
+import ProtectedRoute from "./routes/ProtectedRoute";
+import DashboardLayout from "./layouts/DashboardLayout";
+import CategoryIndex from "./pages/dashboard/category/CategoryIndex";
+import PembicaraIndex from "./pages/dashboard/pembicara/PembicaraIndex";
+import EventIndex from "./pages/dashboard/event/EventIndex";
+import CategoryCreate from "./pages/dashboard/category/CategoryCreate";
+import EventCreate from "./pages/dashboard/event/EventCreate";
+import PembicaraCreate from "./pages/dashboard/pembicara/PembicaraCreate";
 
 function App() {
   return (
@@ -26,6 +35,21 @@ function App() {
         <Route element={<AuthLayout />}>
           <Route path="/login" element={<LoginForm />} />
           <Route path="/register" element={<RegisterForm />} />
+        </Route>
+
+        {/* halaman yang hanay bisa diakses setelah login */}"
+        <Route element={<ProtectedRoute />}>
+          <Route element={<DashboardLayout />}>
+            <Route path="/dashboard" element={<DashboardIndex />} />
+
+            <Route path="/dashboard/category" element={<CategoryIndex/>}/>
+            <Route path="/dashboard/category/create" element={<CategoryCreate/>}/>
+
+            <Route path="/dashboard/pembicara" element={<PembicaraIndex/>}/>
+            <Route path="/dashboard/pembicara/create" element={<PembicaraCreate/>}/>
+            <Route path="/dashboard/event" element={<EventIndex/>}/>
+            <Route path="/dashboard/event/create" element={<EventCreate/>}/>
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>
